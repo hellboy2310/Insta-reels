@@ -3,6 +3,8 @@ import './App.css';
 import Ue1 from './Components/Ue1';
 import Ue2 from './Components/Ue2';
 import Ue3 from './Components/Ue3';
+import Parent from './Components/Context/Parent';
+import Test from './Components/Context/Test';
 
 function App() {
 
@@ -11,7 +13,9 @@ function App() {
     <div className="App">
      {/* <Ue1/> */}
      {/* <Ue2/> */}
-     <Ue3/>
+     {/* <Parent/> */}
+     <Test/>
+     
     </div>
   );
 }
