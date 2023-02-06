@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id = "root">
+
+    </div>
+</body>
+
+<script type = "text/babel">
+
+let root = document.querySelector("#root");
+
+// jsx
+function Element({name = "bhavesh",age=24}){
+    return (
+        <>
+
+        <h1>Hello coder {name}</h1>
+        <h3>{age}</h3>
+        </>
+        )
+}
+
+
+
+//reusability
+
+function Element2({city = "banglore",gender}){
+    return(
+        <h2>how are you?? {city} and gender is {gender}</h2>
+    )
+}
+
+
+// function Element3(){
+//     return(
+//         <h3>this is what it is</h3>
+ n//     )
+// }
+
+
+// function Element4(){
+//     return(
+//         <h1> this is john snow</h1>
+//     )
+// }
+
+function Parent(){
+    return(
+        <div>
+        <Element name = "hellboy" age = "20"/>
+        <Element2 city = "Gujarat" gender = "male"/>
+        <Element name = "xerxes" age = "22"/>
+        <Element2/>
+        <Element/>
+        <Element/>
+        <Element/>
+       
+        </div>
+    )
+    
+}
+
+
+ReactDOM.render(<Parent/>,root);
+
+</script>
+</html>
