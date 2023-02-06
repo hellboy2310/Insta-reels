@@ -5,7 +5,7 @@ function Ue1(){
     const[count,setCount] = useState(0);
     
     useEffect(()=>{
-        document.title = `the count is ${count}`
+        document.title = `the count is ${count}`//this is sideeffect and it will do the work of component did mount as well as component did update
     })
 
 
