@@ -1,0 +1,26 @@
+import React from 'react';
+import {ThemeContext} from './ThemeChanger'
+import {useContext} from "react"
+function Footer(){
+    return(
+        <>
+        <div>Footer</div>
+       <FooterText></FooterText>
+        </>
+       
+    )
+}
+
+function FooterText(){
+    let CTheme = useContext(ThemeContext);
+
+    return(
+        <div className = {CTheme == 'light'?'light':'dark'}>
+            FooterText
+
+        </div>
+    )
+}
+
+
+export default Footer;
