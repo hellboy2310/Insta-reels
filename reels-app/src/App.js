@@ -5,6 +5,7 @@ import Ue2 from './Components/Ue2';
 import Ue3 from './Components/Ue3';
 import Parent from './Components/Context/Parent';
 import Test from './Components/Context/Test';
+import ThemeChanger from './Components/Context/ThemeChanger';
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
      {/* <Ue1/> */}
      {/* <Ue2/> */}
      {/* <Parent/> */}
-     <Test/>
+     {/* <Test/> */}
+     <ThemeChanger/>
      
     </div>
   );
