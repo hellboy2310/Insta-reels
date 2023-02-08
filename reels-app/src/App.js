@@ -6,6 +6,8 @@ import Ue3 from './Components/Ue3';
 import Parent from './Components/Context/Parent';
 import Test from './Components/Context/Test';
 import ThemeChanger from './Components/Context/ThemeChanger';
+import ContextNormal from './Components/Context/ContextNormalvsmemo/ContextNormal';
+import ContextMemo from './Components/Context/ContextNormalvsmemo/ContextMemo';
 
 function App() {
 
@@ -16,7 +18,9 @@ function App() {
      {/* <Ue2/> */}
      {/* <Parent/> */}
      {/* <Test/> */}
-     <ThemeChanger/>
+     {/* <ThemeChanger/> */}
+     {/* <ContextNormal/> */}
+     <ContextMemo/>
      
     </div>
   );
