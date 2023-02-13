@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+
 
 function Login(){
     const[email,setEmail] = useState('');
@@ -11,8 +14,10 @@ function Login(){
         setpass(e.target.value);
     }
 
-    const handlebutton = () =>{
-        alert(email  + " " + pass);
+    const handlebutton =  async()   =>{
+        let userCredential = await signInWithEmailAndPassword(auth,email,pass);
+                    console.log( userCredential.user);
+        
     }
 
 
