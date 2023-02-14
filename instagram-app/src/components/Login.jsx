@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword,signOut } from "firebase/auth";
 import { auth } from "../firebase";
 
 
@@ -36,13 +36,16 @@ function Login() {
     }
 
 
-
+        const logout = async() =>{
+                await signOut(auth);
+                setUser(null);
+        }
 
     return (
         <>
             {error != ""? <h1>{error}</h1>:
             loader == true?<h1>...loading</h1>:
-            user != null?<h1>{user.uid}</h1>:
+            user != null?<h1>User is{user.uid} <button onClick={logout}>logout</button></h1>:
 
                 <>
 
