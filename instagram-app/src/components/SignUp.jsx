@@ -21,7 +21,7 @@ function SignUp() {
             //this will store the data in firestore database with a new collection with a name newusers
             const docRef = await addDoc(collection(db, "newusers"), {
                 email,
-                password,
+                name,
                 reelsIds:[],
                 profileImageUrl:"",
                 userId:userCredential.user.uid
