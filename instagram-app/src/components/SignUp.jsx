@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { auth } from "../firebase";
+import { auth,db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore"; 
 
 function SignUp() {
 
@@ -16,6 +17,16 @@ function SignUp() {
         try {
             setLoader(true);
             let userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+            //this will store the data in firestore database with a new collection with a name newusers
+            const docRef = await addDoc(collection(db, "newusers"), {
+                email,
+                password,
+                reelsIds:[],
+                profileImageUrl:"",
+                userId:userCredential.user.uid
+
+            });
             setUser(userCredential.user);
         }
         catch (error) {
@@ -25,6 +36,17 @@ function SignUp() {
             }, 2000);
         }
         setLoader(false);
+    // rules_version = '2';
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     match /{document=**} {
+//       allow read, write: if
+//           request.time < timestamp.date(2022, 8, 16);
+//     }
+//   }
+// }
+    
+    
     }
 
     const Emailhandler = (e) => {
