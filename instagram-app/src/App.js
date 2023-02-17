@@ -6,12 +6,14 @@ import PageNotFound from './components/PageNotFound';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
 import { Switch, Route } from 'react-router-dom';
+import { AuthContextProvider } from './context/AuthContext';
 //In this code we have installed react-router-dom@5.3.1 to understand switch 
 
 
 function App() {
   return (
     <div>
+      <AuthContextProvider>
       <Switch>
         <Route path='/feed'>
           <Feed></Feed>
@@ -27,6 +29,7 @@ function App() {
         </Route>
         <PageNotFound></PageNotFound>
       </Switch>
+      </AuthContextProvider>
     </div>
   );
 }

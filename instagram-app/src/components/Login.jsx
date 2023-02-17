@@ -9,7 +9,7 @@ function Login() {
     const [user, setUser] = useState(null); //user will tell if the user is logged in or not if it is logged in it will display the contents to UI
     const [loader, setLoader] = useState(false);//when the user will press the login button it will make the user wait for a while by setloader == true means the data is yet to be displayed and setloader == false means data in visible on UI
     const [error, setError] = useState("");//if the use enters wrong details then this will work
-    const [mainLoader, setMainLoader] = useState(true);//check if the user is already logged in
+    // const [mainLoader, setMainLoader] = useState(true);//check if the user is already logged in
     const trackEmail = (e) => {
         setEmail(e.target.value);
     }
@@ -54,7 +54,7 @@ function Login() {
                 // ...
                 setUser(null);
             }
-            setMainLoader(false);
+            // setMainLoader(false);
         });
 
     }, [])
@@ -63,7 +63,8 @@ function Login() {
 
     return (
         <>
-            {mainLoader == true?<h1>...PageLoading</h1>:
+            {
+            // mainLoader == true?<h1>...PageLoading</h1>:
             error != "" ? <h1>{error}</h1> :
                 loader == true ? <h1>...loading</h1> :
                     user != null ? <h1>User is{user.uid} <button onClick={logout}>logout</button></h1> :
