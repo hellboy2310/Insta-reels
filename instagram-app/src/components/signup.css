@@ -1,0 +1,77 @@
+/* Default styles for big screens */
+body {
+    background-color: #EEEEEE;
+}
+
+.signup_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+}
+
+.input_Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.firstContainer {
+    margin-top: 2rem;
+}
+
+.area_of_container {
+    margin-bottom: 3rem;
+    height: 3rem;
+    width: 20rem;
+    border-style: none;
+    background-color: #FED1EF;
+    border-radius: 5px;
+}
+
+input::placeholder {
+    font-size: 17px;
+    font-style: initial;
+}
+
+.main_container {
+    height: 40rem;
+    background-color: #D77FA1;
+}
+
+.signup_button {
+    font-size: 23px;
+    color: gray;
+    font-style: italic;
+    height: 3rem;
+    width: 20rem;
+    border-style: none;
+    margin-top: 3rem;
+    background-color: #FED1EF;
+    border-radius: 30px;
+}
+
+/* Media query for small screens */
+@media only screen and (max-width: 768px) {
+    body {
+        margin: 0;
+    }
+    
+    .signup_header {
+        margin: 10% 5% 5%;
+    }
+
+    .area_of_container {
+        width: 80%;
+    }
+
+    .main_container {
+        height: auto;
+    }
+
+    .signup_button {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+}

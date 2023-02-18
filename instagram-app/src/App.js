@@ -23,9 +23,7 @@ function App() {
           {/* <Route path='/feed'>
             <Feed></Feed>
           </Route> */}
-          {/* <Route path='/login'>
-            <Login></Login>
-          </Route> */}
+          {/*  */}
           <RedirectToFeed path = '/login' comp = {Login}>
 
           </RedirectToFeed>
@@ -39,13 +37,14 @@ function App() {
           <Profile></Profile>
         </Route> */}
           
-          <RedirectToFeed path = '/signup' comp = {SignUp}>
+           <RedirectToFeed path = '/signup' comp = {SignUp}>
 
-          </RedirectToFeed>
+          </RedirectToFeed> 
           
-          {/* <Route path='/Signup'>
+         {/* <Route path='/signup'>
             <SignUp></SignUp>
-          </Route> */}
+          </Route>  
+           */}
           <PageNotFound></PageNotFound>
         </Switch>
       </AuthContextProvider>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-
+import './login.css'
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -63,24 +63,40 @@ function Login() {
 
     return (
         <>
+         <div className="signup_header">
             {
-            // mainLoader == true?<h1>...PageLoading</h1>:
-            error != "" ? <h1>{error}</h1> :
-                loader == true ? <h1>...loading</h1> :
-                    user != null ? <h1>User is{user.uid} <button onClick={logout}>logout</button></h1> :
+                // mainLoader == true?<h1>...PageLoading</h1>:
+            
+                error != "" ? <h1>{error}</h1> :
+                    loader == true ? <h1>...loading</h1> :
+                        user != null ? <h1>User is{user.uid} <button onClick={logout}>logout</button></h1> :
 
-                        <>
-
-                            <input placeholder="enter your email" onChange={trackEmail} type='email'></input>
-                            <br></br>
-                            <input placeholder="enter your password" onChange={trackPass} type='password'></input>
-                            <br></br>
-                            <button onClick={handlebutton}>Login</button>
+                            <>
 
 
-                        </>
+
+                                <div className="main_container">
+                                    <div className="card" >
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiBvvRY2qdk21cCDqMgUYXHfcA4T5vaDKSDA&usqp=CAU" className="card-img-top" alt="..." />
+                                        <div className="input-group mb-3 input_Container">
+
+                                            <input type="email" onChange={trackEmail} className="form-control area_of_container firstContainer" placeholder="Enter your email" aria-label="Username" aria-describedby="basic-addon1" value={email} />
+
+                                            <input type="password" onChange={trackPass} className="form-control area_of_container" placeholder="Enter your Password" aria-label="Username" aria-describedby="basic-addon1" value={pass} />
+
+
+
+                                            <button onClick={handlebutton} className="signup_button">Login </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                            </>
             }
-
+ </div>
         </>
 
 

@@ -9,7 +9,7 @@ function Profile() {
 
     let cuser = useContext(AuthContext);
     let [loading, setLoading] = useState(true);
-    let [user,setUser] = useState();
+    let [user,setUser] = useState('');
 
     console.log(cuser);
 
@@ -41,7 +41,7 @@ function Profile() {
                     <div className="header"></div>
                     <div className="main">
                         <div className="pimg_container">
-                            <img className='pimg' src={user.profileImageUrl} />
+                            <img className='pimg' src="" />
 
                         </div>
                         <div className="details">
