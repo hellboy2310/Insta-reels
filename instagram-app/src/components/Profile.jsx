@@ -12,20 +12,19 @@ function Profile() {
 
     console.log(user);
 
-    useEffect(function fn(){
-        (async function (){
-            if(user){
-                const docRef = doc(db, "newusers",user.uid);
-            const docSnap = await getDoc(docRef);
-            console.log("Document data",docSnap)
-            if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
+    useEffect(function fn() {
+        (async function () {
+            if (user) {
+
+                const docRef = doc(db, "newusers", user.uid);
+                //db -> kis database me dhundhna he
+                //newusers -> konse collection me dhundhna he
+                //user.uid -> konsa document dhundna he
+                const docSnap = await getDoc(docRef);
+                console.log("Document data", docSnap)
+
             }
-            }
-            
+
         })()
 
     }, [user]);
