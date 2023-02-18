@@ -82,8 +82,8 @@ return(
   {...props}
   render ={
     (props) =>{
-      return user == null?<Component {...props}></Component>:<Redirect {...props} to = '/feed'></Redirect>
-    }
+      return user != null?<Redirect {...props} to = '/feed'></Redirect>:<Component {...props}></Component>
+        }
   } 
   >
 

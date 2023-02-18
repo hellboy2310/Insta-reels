@@ -1,18 +1,35 @@
-import { useContext, useState } from 'react';
-import {db} from '../firebase';
-import {doc,getDoc} from 'firebase/firestore';
+import { useContext, useEffect, useState } from 'react';
+import { db } from '../firebase';
+import { doc, getDoc } from 'firebase/firestore';
 import './profile.css'
 import { AuthContext } from '../context/AuthContext';
 
 function Profile() {
-    
 
-   let  user = useContext(AuthContext);
-    let[loading,setLoading] = useState("");
+
+    let user = useContext(AuthContext);
+    let [loading, setLoading] = useState("");
+
     console.log(user);
 
+    useEffect(function fn(){
+        (async function (){
+            if(user){
+                const docRef = doc(db, "newusers",user.uid);
+            const docSnap = await getDoc(docRef);
+            console.log("Document data",docSnap)
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+            }
+            
+        })()
 
-    
+    }, [user]);
+
 
     return (
         <>
@@ -30,9 +47,9 @@ function Profile() {
                             <div className="content">No of Posts: <span className='bold_text'>Posts</span></div>
                             <div className="content">Email: <span className='bold_text'>Email.com</span></div>
                         </div>
-                        
+
                     </div>
-                    
+
                 </>
             }
 

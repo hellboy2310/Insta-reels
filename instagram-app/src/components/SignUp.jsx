@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth,db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc,setDoc,doc } from "firebase/firestore"; 
 
 function SignUp() {
 
@@ -19,7 +19,7 @@ function SignUp() {
             let userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
             //this will store the data in firestore database with a new collection with a name newusers
-            const docRef = await addDoc(collection(db, "newusers"), {
+            const docRef = await setDoc(doc(db, "newusers",userCredential.user.uid), {
                 email,
                 name,
                 reelsIds:[],
