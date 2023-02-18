@@ -5,10 +5,14 @@ import './profile.css'
 import { AuthContext } from '../context/AuthContext';
 
 function Profile() {
+    
 
-    let user = useContext(AuthContext);
+   let  user = useContext(AuthContext);
     let[loading,setLoading] = useState("");
     console.log(user);
+
+
+    
 
     return (
         <>
@@ -26,7 +30,9 @@ function Profile() {
                             <div className="content">No of Posts: <span className='bold_text'>Posts</span></div>
                             <div className="content">Email: <span className='bold_text'>Email.com</span></div>
                         </div>
+                        
                     </div>
+                    
                 </>
             }
 

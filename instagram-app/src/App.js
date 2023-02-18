@@ -16,16 +16,21 @@ function App() {
     <div>
       <AuthContextProvider>
         <Switch>
-      <PrivateRoute path = '/feed' comp = {Feed}>
+          <PrivateRoute path='/feed' comp={Feed}>
 
-      </PrivateRoute>
+          </PrivateRoute>
 
           {/* <Route path='/feed'>
             <Feed></Feed>
           </Route> */}
-          <Route path='/login'>
+          {/* <Route path='/login'>
             <Login></Login>
-          </Route>
+          </Route> */}
+          <RedirectToFeed path = '/login' comp = {Login}>
+
+          </RedirectToFeed>
+
+
           <PrivateRoute path='/profile' comp={Profile}>
 
           </PrivateRoute>
@@ -33,9 +38,14 @@ function App() {
           {/* <Route path = '/profile'>
           <Profile></Profile>
         </Route> */}
-          <Route path='/Signup'>
+          
+          <RedirectToFeed path = '/signup' comp = {SignUp}>
+
+          </RedirectToFeed>
+          
+          {/* <Route path='/Signup'>
             <SignUp></SignUp>
-          </Route>
+          </Route> */}
           <PageNotFound></PageNotFound>
         </Switch>
       </AuthContextProvider>
@@ -44,29 +54,42 @@ function App() {
 }
 
 
-function PrivateRoute(props){
+function PrivateRoute(props) {
   // This line declares a function component named PrivateRoute that accepts a props object as its input.
-let Component = props.comp;
-//This line creates a new variable named Component and assigns it the value of the comp property of the props object.
-let user = useContext(AuthContext);
+  let Component = props.comp;
+  //This line creates a new variable named Component and assigns it the value of the comp property of the props object.
+  let user = useContext(AuthContext);
+  return (
+    <Route
+      {...props}
+      //This line creates a new Route component and passes all of the props object's properties to it using the spread syntax ({...props}). This is done so that any additional properties passed to PrivateRoute are also passed on to the Route component.
+      render={
+        (props) => {
+          return user != null ? <Component {...props}></Component> : <Redirect {...props} to='/login'></Redirect>
+        }
+      }
+    >
+    </Route>
+  )
+
+}
+
+function RedirectToFeed(props) {
+  let Component = props.comp;
+  let user = useContext(AuthContext);
 return(
   <Route
   {...props}
-//This line creates a new Route component and passes all of the props object's properties to it using the spread syntax ({...props}). This is done so that any additional properties passed to PrivateRoute are also passed on to the Route component.
-  render = {
+  render ={
     (props) =>{
-      return user!= null?<Component {...props}></Component>:<Redirect {...props} to = '/login'></Redirect>
+      return user == null?<Component {...props}></Component>:<Redirect {...props} to = '/feed'></Redirect>
     }
-  }
+  } 
   >
 
   </Route>
 )
-
-}
-
-function PrivateRouteFeed(props){
-
+  
 }
 
 
