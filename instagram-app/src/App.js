@@ -16,9 +16,13 @@ function App() {
     <div>
       <AuthContextProvider>
         <Switch>
-          <Route path='/feed'>
+      <PrivateRoute path = '/feed' comp = {Feed}>
+
+      </PrivateRoute>
+
+          {/* <Route path='/feed'>
             <Feed></Feed>
-          </Route>
+          </Route> */}
           <Route path='/login'>
             <Login></Login>
           </Route>
@@ -58,6 +62,10 @@ return(
 
   </Route>
 )
+
+}
+
+function PrivateRouteFeed(props){
 
 }
 
