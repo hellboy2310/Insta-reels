@@ -1,0 +1,103 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video-card-comment-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .video-card-username {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .video-card-music {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .video-card {
+    height: 100%;
+    width: 35%;
+    margin: auto;
+    position: relative;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .chat_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6.3rem;
+        
+    border-radius: 5px;
+    border-style: none;
+    margin-top: 2rem;
+    padding: 10px 24px;
+}
+  
+  .video-card h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  .video-card p {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .video-card:hover {
+    border: 2px solid #00bfff;
+  }
+  
+  .comment-box{
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    box-shadow: 0 -5px 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column; /* add this line */
+    align-items: center;
+    justify-content: center;
+  } 
+  .comment-form button{
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .comment-form input {
+    width: 85%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .comment-form button {
+    padding: 10px 20px;
+    background-color: #00bfff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .comment-form button:hover {
+    background-color: #009acd;
+  }
+  
