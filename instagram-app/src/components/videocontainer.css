@@ -1,9 +1,11 @@
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.video-card-comment-box {
+    
+  }
+  
+  .video-card-comment-box {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,26 +26,17 @@ body{
   
   .video-card {
     height: 100%;
-    width: 35%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     margin: auto;
     position: relative;
     padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .chat_button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 9rem;
 
     border-radius: 5px;
-    border-style: none;
-    margin-top: 1rem;
-    padding: 10px 24px;
-}
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: grey;
+  }
   
   .video-card h2 {
     font-size: 24px;
@@ -60,7 +53,7 @@ body{
     border: 2px solid #00bfff;
   }
   
-  .comment-box{
+  .comment-box {
     height: 40%;
     width: 100%;
     position: absolute;
@@ -69,13 +62,14 @@ body{
     bottom: 0;
     left: 0;
     padding: 20px;
-    box-shadow: 0 -5px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.2);
     display: flex;
-    flex-direction: column; /* add this line */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-  } 
-  .comment-form button{
+  }
+  
+  .comment-form button {
     margin: 0 auto;
     display: block;
   }
@@ -100,9 +94,55 @@ body{
   .comment-form button:hover {
     background-color: #009acd;
   }
-  .video-card-video{
-   
-    width: 25rem;
+  
+  .video-card-video {
+    width: 100%;
+    max-width: 25rem;
+background-color: grey;  
+}
+  
+  .chat_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    border-radius: 5px;
+    border-style: none;
+    padding: 10px 24px;
   }
-
+  
+  @media only screen and (max-width: 768px) {
+    .video-card {
+      max-width: 90%;
+    }
+  
+    .chat_button {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .comment-box {
+      height: 50%;
+    }
+  
+    .comment-form input {
+      width: 75%;
+    }
+  
+    .video-card h2 {
+      font-size: 20px;
+    }
+  
+    .video-card p {
+      font-size: 14px;
+    }
+  
+    .chat_button {
+      padding: 8px 16px;
+    }
+  }
   

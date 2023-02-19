@@ -102,14 +102,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
-{/* <div >
-                                    <img  className="instagram_image" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiBvvRY2qdk21cCDqMgUYXHfcA4T5vaDKSDA&usqp=CAU"></img>
-                                    <input type="email" onChange={Emailhandler} placeholder="Enter your email" value={email}></input>
-                                    <br></br>
-                                    <input type="password" onChange={Passwordhandler} placeholder="Enter your password" value={password}></input>
-                                    <br></br>
-                                    <input type="text" onChange={Namehandler} value={name} placeholder="Enter your text"></input>
-                                    <br></br>
-                                    <button onClick={createUser}>SignUp</button>
-                                </div> */}

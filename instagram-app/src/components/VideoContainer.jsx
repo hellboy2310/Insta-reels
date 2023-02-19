@@ -4,9 +4,10 @@ import { useState } from "react"
 
 
 
-function VideoContainer() {
+function VideoContainer(props) {
     let [playing, setPlaying] = useState(true);
     let [commentbox, setComment] = useState(false);
+    console.log('videoContainer', props);
     return (
 
 
@@ -24,7 +25,7 @@ function VideoContainer() {
                     }
                 }}
                 
-                    src="https://firebasestorage.googleapis.com/v0/b/reel-c6fe6.appspot.com/o/insta_image1.mp4?alt=media&token=edd6b3d3-cb9c-4e8c-961f-b99dcc6c6285"></video>
+                    src={props.data.profileImageUrl}></video>
 
  
               

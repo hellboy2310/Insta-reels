@@ -2,13 +2,33 @@ import "./feed.css"
 import VideoContainer from './VideoContainer'
 import { auth, storage } from '../firebase'
 import { uploadBytesResumable, ref, getDownloadURL } from "firebase/storage";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { db } from "../firebase";
+import './signup.css';
+import { setDoc, doc } from "firebase/firestore";
+import { AuthContext } from "../context/AuthContext";
+import { collection, getDocs } from "firebase/firestore";
 
 function Feed() {
-    let [loading, setLoading] = useState(true);
 
+
+    const [loading, setLoading] = useState(false);
+    let user = useContext(AuthContext);
+    let [posts, setPosts] = useState([]);
+    useEffect(async() => {
+        const querySnapshot = await getDocs(collection(db, "newpostsinsta"));
+        let arr = [];
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            arr.push({id:doc.id,...doc.data()})
+        });
+        setPosts(arr);
+        
+    },[])
     return (
         <>
+
 
             <div className="header">
 
@@ -25,15 +45,19 @@ function Feed() {
 
 
             <div className="main_container">
-                <input type='file'  onChange={(e) => {
+                <input type='file' onChange={(e) => {
+                    setLoading(true);
+                    <h1>...uploading</h1>
                     let videoObj = e.currentTarget.files[0];
                     console.log(videoObj);
+                    loading == true ? <h1>...uploading</h1> : <h1>error</h1>
                     let { name, type, size } = videoObj;
                     console.log(type);
                     if (type != 'video/mp4') {
                         alert('enter videos only')
                     }
                     else {
+
 
                         let storageRef = ref(storage, `${name}`)
                         console.log("storaage video", storageRef);
@@ -56,8 +80,10 @@ function Feed() {
                                         console.log('Upload is running');
                                         break;
                                 }
+
                             },
                             (error) => {
+                                setLoading(false);
                                 // A full list of error codes is available at
                                 // https://firebase.google.com/docs/storage/web/handle-errors
                                 switch (error.code) {
@@ -76,10 +102,21 @@ function Feed() {
                                 }
                             },
                             () => {
+                                setLoading(false);
                                 // Upload completed successfully, now we can get the download URL
-                                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                                getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
                                     console.log('File available at', downloadURL);
+                                    const docRef = await setDoc(doc(db, "newpostsinsta", user.uid + `${name}`), {
+                                        email: user.email,
+                                        likes: [],
+                                        comments: [],
+                                    profileImageUrl: downloadURL,
+
+
+                                    })
+
                                 });
+
                             }
                         );
 
@@ -89,10 +126,11 @@ function Feed() {
 
                 }} />
                 <div className="reels_container">
-
-                    <VideoContainer></VideoContainer>
+                    {posts.map((post) => {
+                      return  <VideoContainer key={post.id} data={post}/>
+                    })}
                 </div>
-                
+
 
 
             </div>
