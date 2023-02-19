@@ -25,7 +25,7 @@ function Feed() {
 
 
             <div className="main_container">
-                <input type='file' onChange={(e) => {
+                <input type='file'  onChange={(e) => {
                     let videoObj = e.currentTarget.files[0];
                     console.log(videoObj);
                     let { name, type, size } = videoObj;
@@ -39,15 +39,15 @@ function Feed() {
                         console.log("storaage video", storageRef);
                         const uploadTask = uploadBytesResumable(storageRef, videoObj);
                         uploadTask.on('state_changed',
-                        
-                        (snapshot) => {
-                                
-                                        
+
+                            (snapshot) => {
+
+
 
                                 // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                                 console.log('Upload is ' + progress + '% done');
-                                
+
                                 switch (snapshot.state) {
                                     case 'paused':
                                         console.log('Upload is paused');
@@ -88,11 +88,12 @@ function Feed() {
                     }
 
                 }} />
-
-                <div className="upload_container">Upload</div>
                 <div className="reels_container">
+
                     <VideoContainer></VideoContainer>
                 </div>
+                
+
 
             </div>
         </>

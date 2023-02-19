@@ -37,11 +37,11 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 6.3rem;
-        
+    margin-left: 9rem;
+
     border-radius: 5px;
     border-style: none;
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 10px 24px;
 }
   
@@ -100,4 +100,9 @@ body{
   .comment-form button:hover {
     background-color: #009acd;
   }
+  .video-card-video{
+   
+    width: 25rem;
+  }
+
   

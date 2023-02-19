@@ -1,90 +1,112 @@
-/* Styles for larger screens */
 .header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.insta_img{
+    }
+    
+    .insta_img{
     height: 3rem;
-}
-
-.feed_userImage{
+    }
+    
+    .feed_userImage{
     align-items: center;
     justify-content: center;
     display: flex;
     margin: 2rem;
-}
-
-.logout{
+    }
+    
+    .logout{
     margin-left: 2rem;
     background-color:#FED1EF;
     border-style: none;
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
-}
-
-.profile_img{
+    }
+    
+    .profile_img{
     height: 4rem;
     width: 5rem;
     border-radius: 50%;
-}
-
-.main_container{
+    }
+    
+    .main_container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
-}
-
-.upload_container{
+    }
+    
+    .inputfile{
+    margin-top: -7rem;
+    }
+    
+    .upload_container{
     border: 3px solid grey;
     width: 7rem;
     height: 2rem;
     text-align: center;
     border-radius: 5px;
-}
-
-/* Styles for smaller screens */
-@media only screen and (max-width: 480px) {
-    .header{
-
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem;
     }
-
+    
+    /* Styles for smaller screens */
+    @media only screen and (max-width: 768px) {
+    .header{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    }
+    
+    css
+    Copy code
     .insta_img{
         display: flex;
         height: 2rem;
         margin-top: 0.5rem; /* Adjust the margin to push the logo down */
-        
     }
-
-    .feed_userImage{
-        margin-left: 4rem;
-        
-    }
-.logout{
     
-    padding: 6px 20px;
-}
-   
-
-    .profile_img{
-        height: 4rem;
-        width: 4rem;
-        margin-right: 2rem;
-        }
-
-    .main_container{
-        margin-top: 5px;
+    .feed_userImage{
+        margin-left: 0;
+        margin-top: 1rem;
     }
-
+    
+    .logout{
+        margin-left: 0;
+        margin-top: 1rem;
+        padding: 6px 20px;
+    }
+    
+    .profile_img{
+        height: 3rem;
+        width: 3rem;
+        margin-right: 0;
+    }
+    
     .upload_container{
         width: 5rem;
         height: 1.5rem;
     }
-}
+    }
+    
+    /* Styles for even smaller screens */
+    @media only screen and (max-width: 480px) {
+    .insta_img{
+    height: 1.5rem;
+    }
+    
+    css
+    Copy code
+    .feed_userImage{
+        margin-top: 0.5rem;
+    }
+    
+    .profile_img{
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    
+    .upload_container{
+        width: 4rem;
+        height: 1rem;
+    }
+    }
