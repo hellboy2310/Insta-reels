@@ -16,6 +16,15 @@ function App() {
     <div>
       <AuthContextProvider>
         <Switch>
+        <RedirectToFeed path = '/login' comp = {Login}>
+
+</RedirectToFeed>
+          
+<RedirectToFeed path = '/signup' comp = {SignUp}>
+
+          </RedirectToFeed> 
+          
+
           <PrivateRoute path='/feed' comp={Feed}>
 
           </PrivateRoute>
@@ -24,9 +33,7 @@ function App() {
             <Feed></Feed>
           </Route> */}
           {/*  */}
-          <RedirectToFeed path = '/login' comp = {Login}>
-
-          </RedirectToFeed>
+        
 
 
           <PrivateRoute path='/profile' comp={Profile}>
@@ -37,10 +44,7 @@ function App() {
           <Profile></Profile>
         </Route> */}
           
-           <RedirectToFeed path = '/signup' comp = {SignUp}>
-
-          </RedirectToFeed> 
-          
+           
          {/* <Route path='/signup'>
             <SignUp></SignUp>
           </Route>  
