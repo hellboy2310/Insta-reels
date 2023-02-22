@@ -1,9 +1,9 @@
 
 import './videocontainer.css'
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { db } from "../firebase";
 import { AuthContext } from '../context/AuthContext';
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc,getDoc } from "firebase/firestore";
 import { updateDoc } from "firebase/firestore";
 
 
@@ -12,11 +12,23 @@ function VideoContainer(props) {
     let [commentbox, setComment] = useState(false);
     let [currUserComment, setCurrUserComment] = useState("");
     // console.log('videoContainer', props);
-let user = useContext(AuthContext);
+   let[comments,setComments] = useState([]);
+    let user = useContext(AuthContext);
+
+    useEffect(async()=>{
+        let commentIdArr = props.data.comments;
+        let arr = [];
+        for(let i = 0 ;i<commentIdArr.length;i++){
+            const commentRef  = doc(db,"comments",commentIdArr[i]);
+            const commentSnap = await getDoc(commentRef);
+            arr.push(commentSnap.data())   
+        }
+    },[props]);
+
+   
+
+
     return (
-
-
-
         <div className="video_card">
 
             <video className='video-card-video' onClick={(e) => {
@@ -52,8 +64,15 @@ let user = useContext(AuthContext);
             {commentbox ?
                 <div className="video-card-comment-box">
                     <div className="actual-comments">
-                        <h5>User Name</h5>
-                        <p>This is actual comment</p>
+                    {comments.map((comment) => {
+                        return (
+                            <div className="actual-comments">
+                                <h5>{comment.email}</h5>
+                                
+                                <p>{comment.comment}</p>
+                            </div>
+                        )
+                    })}
                     </div>
                     <div className="comment-form">
                         <div className="post-user-comment">
