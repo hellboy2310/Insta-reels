@@ -10,6 +10,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 1;
   }
   
   .video-card-username {
@@ -68,7 +69,9 @@ body {
     align-items: center;
     justify-content: center;
   }
-  
+  .actual-comments{
+    z-index: 2;
+  }
   .comment-form button {
     margin: 0 auto;
     display: block;

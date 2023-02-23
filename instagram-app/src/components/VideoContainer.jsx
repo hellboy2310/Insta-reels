@@ -19,10 +19,12 @@ function VideoContainer(props) {
         let commentIdArr = props.data.comments;
         let arr = [];
         for(let i = 0 ;i<commentIdArr.length;i++){
-            const commentRef  = doc(db,"comments",commentIdArr[i]);
+            const commentRef  = doc(db,"newcommentsinsta",commentIdArr[i]);
             const commentSnap = await getDoc(commentRef);
             arr.push(commentSnap.data())   
         }
+        setComments(arr);
+        console.log(arr);
     },[props]);
 
    
@@ -65,11 +67,15 @@ function VideoContainer(props) {
                 <div className="video-card-comment-box">
                     <div className="actual-comments">
                     {comments.map((comment) => {
+                        console.log(comment.email);
                         return (
+                            console.log(comment.email),
+                            console.log(comment.comments),
                             <div className="actual-comments">
+                                
                                 <h5>{comment.email}</h5>
                                 
-                                <p>{comment.comment}</p>
+                                <p>{comment.comments}</p>
                             </div>
                         )
                     })}
